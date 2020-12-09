@@ -12,6 +12,10 @@ RUN apt-get update && apt-get install -y \
 ARG TS3_AUDIOBOT_RELEASE="0.11.0"
 ARG TS3_AUDIOBOT_FLAVOUR="TS3AudioBot_dotnet_core_3.1.zip"
 
+
+RUN curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl && \
+    chmod a+rx /usr/local/bin/youtube-dl
+
 # download and install the TS3AudioBot in the specified version and flavour
 RUN mkdir -p /opt/TS3AudioBot \
     && cd /opt/TS3AudioBot \
